@@ -1,0 +1,1 @@
+echo "source <(kind completion bash)" >> ~/.bashrc

@@ -1,0 +1,18 @@
+{
+  "image": "mcr.microsoft.com/devcontainers/universal:2",
+  "features": {
+    "ghcr.io/mpriscella/features/kind:1": {
+        "version": "latest"
+    }
+  },
+  "postCreateCommand": "bash -i ./.devcontainer/setup.sh",
+  "customizations": {
+    "vscode": {
+      "settings": {
+        "editor.minimap.enabled": false,
+        "workbench.panel.defaultLocation": "right"
+      },
+      "extensions": []
+    }
+  }
+}
