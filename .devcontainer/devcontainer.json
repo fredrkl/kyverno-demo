@@ -12,7 +12,9 @@
         "editor.minimap.enabled": false,
         "workbench.panel.defaultLocation": "right"
       },
-      "extensions": []
+      "extensions": [
+        "GitHub.copilot"
+      ]
     }
   }
 }
