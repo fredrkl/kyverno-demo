@@ -1,6 +1,9 @@
 {
   "image": "mcr.microsoft.com/devcontainers/universal:2",
   "features": {
+     "ghcr.io/devcontainers-contrib/features/kubectx-kubens:1": {
+        "version": "latest"
+     },
     "ghcr.io/mpriscella/features/kind:1": {
         "version": "latest"
     }
