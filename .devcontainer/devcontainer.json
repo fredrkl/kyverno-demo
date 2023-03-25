@@ -6,7 +6,8 @@
      },
     "ghcr.io/mpriscella/features/kind:1": {
         "version": "latest"
-    }
+    },
+    "ghcr.io/devcontainers-contrib/features/kubectl-asdf:2": {}
   },
   "postCreateCommand": "bash -i ./.devcontainer/setup.sh",
   "customizations": {

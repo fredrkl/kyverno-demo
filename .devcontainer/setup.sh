@@ -8,3 +8,5 @@ export PATH=~/.kubectx:$PATH
 alias kx=kubectx
 alias kns=kubens
 EOF
+
+mkdir ~/.kube
