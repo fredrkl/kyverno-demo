@@ -1,5 +1,7 @@
 # Kyverno Demo
 
+![Kyverno](images/kyverno.png)
+
 ## Setup
 
 ### devcontainer
