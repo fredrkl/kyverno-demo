@@ -1,8 +1,10 @@
-echo "source <(kind completion bash)" >> ~/.bashrc
-echo "source <(kubectl completion bash)" >> ~/.bashrc
-echo "alias k=kubectl" >> ~/.bashrc
-echo "complete -F __start_kubectl k" >> ~/.bashrc
+cat >> ~/.bashrc <<EOF
+source <(kind completion bash)
+source <(kubectl completion bash)
+alias k=kubectl
+complete -F __start_kubectl k
 
-echo "export PATH=~/.kubectx:$PATH" >> ~/.bashrc
-echo "alias kx=kubectx" >> ~/.bashrc
-echo "alias kns=kubens" >> ~/.bashrc
+export PATH=~/.kubectx:$PATH
+alias kx=kubectx
+alias kns=kubens
+EOF
