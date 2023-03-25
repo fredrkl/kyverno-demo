@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  namespace: demo-pods
+  labels:
+    run: failing-demo
+  name: failing-demo
+spec:
+  containers:
+  - image: nginx
+    name: failing-demo

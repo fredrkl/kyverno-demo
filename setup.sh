@@ -1,1 +1,0 @@
-kind create cluster -n kyverno-learning
