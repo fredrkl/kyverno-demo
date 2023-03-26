@@ -51,3 +51,52 @@ We should then see the following output:
     check-for-labels: 'validation error: The label `tech-lead` is required. rule check-for-labels
         failed at path /metadata/labels/tech-lead/'
 ```
+
+## Report
+
+To get a report, run the following command:
+
+```bash
+kubectl describe backgroundscanreports.kyverno.io {a-backgroundscanreport-name}
+```
+
+Example output(reduced for brevity):
+
+```bash
+Name:         194e4165-e135-49ad-8585-1c397b1cd773
+Namespace:    kyverno
+Labels:       app.kubernetes.io/managed-by=kyverno
+              audit.kyverno.io/resource.hash=42a4837ede0daaa4e04e5a2a26ce3300
+              audit.kyverno.io/resource.uid=194e4165-e135-49ad-8585-1c397b1cd773
+              cpol.kyverno.io/require-labels=24562
+Annotations:  audit.kyverno.io/last-scan-time: 2023-03-25T23:46:40Z
+API Version:  kyverno.io/v1alpha2
+Kind:         BackgroundScanReport
+Metadata:
+  Creation Timestamp:  2023-03-25T21:33:52Z
+  Generation:          3
+  Owner References:
+    API Version:     v1
+    Kind:            Pod
+    Name:            kyverno-cleanup-controller-89d978b7c-wr544
+Spec:
+  Results:
+    Category:  Best Practices
+    Message:   validation error: The label `tech-lead` is required. rule check-for-labels failed at path /metadata/labels/tech-lead/
+    Policy:    require-labels
+    Result:    fail
+    Rule:      check-for-labels
+    Scored:    true
+    Severity:  medium
+    Source:    kyverno
+    Timestamp:
+      Nanos:    0
+      Seconds:  1679788006
+  Summary:
+    Error:  0
+    Fail:   1
+    Pass:   0
+    Skip:   0
+    Warn:   0
+Events:     <none>
+```
