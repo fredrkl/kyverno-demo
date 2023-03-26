@@ -24,7 +24,12 @@ kind create cluster --name kyverno-demo
 kind get kubeconfig --name kyverno-demo > ~/.kube/config
 ```
 
-### Install Kyverno
+## Install Kyverno
+
+### Using Helm
+Following the instructions [here](https://kyverno.io/docs/installation/#using-helm) to install Kyverno using Helm.
+
+### Using kubectl
 To install Kyverno, run the following command:
 
 ```bash
