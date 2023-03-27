@@ -1,0 +1,11 @@
+name: require tech label
+policies:
+- policies/require-tech-lead-label.yaml
+resources:
+- demo-pods/missing-tech-lead-label.yaml
+results:
+- policy: require-labels
+  rule: check-for-labels
+  resource: failing-demo
+  kind: Pod
+  result: fail

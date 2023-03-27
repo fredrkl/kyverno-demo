@@ -4,7 +4,7 @@
 
 # Setup
 
-# devcontainer
+## devcontainer
 This demo shows how to use Kyverno to enforce policies on Kubernetes resources. You can use the devcontainer following this repo. The devcontainer has all the tools installed to run the demo. 
 
 ## Setting up the demo without the devcontainer
@@ -102,4 +102,28 @@ Spec:
     Skip:   0
     Warn:   0
 Events:     <none>
+```
+
+# Kyverno CLI Demo
+
+The kyverno cli is installed as part of this codespace. Please see the [Kyverno CLI](https://kyverno.io/docs/kyverno-cli/) documentation if you want to install it locally.
+
+## Validate a policy
+
+```bash
+kyverno test .
+```
+### The result
+```
+
+Executing require tech label...
+applying 1 policy to 1 resource...
+
+│───│────────────────│──────────────────│──────────────────────────│────────│
+│ # │ POLICY         │ RULE             │ RESOURCE                 │ RESULT │
+│───│────────────────│──────────────────│──────────────────────────│────────│
+│ 1 │ require-labels │ check-for-labels │ default/Pod/failing-demo │ Pass   │
+│───│────────────────│──────────────────│──────────────────────────│────────│
+
+Test Summary: 1 tests passed and 0 tests failed
 ```
