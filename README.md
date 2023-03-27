@@ -38,10 +38,8 @@ kubectl apply -f https://raw.githubusercontent.com/kyverno/kyverno/main/definiti
 
 ## Demo
 
-First we will create a namespace for our demo pods:
-    
 ```bash
-kubectl apply -f demo-pods/ns.yaml
+kubectl apply -f policies/require-tech-lead-label.yaml
 kubectl apply -f demo-pods/missing-tech-lead-label.yaml
 ```
 
