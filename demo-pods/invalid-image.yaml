@@ -13,6 +13,6 @@ metadata:
 spec:
   containers:
   - image: traefik
-    name: invalid-image2
+    name: invalid-image
   - image: nginx
     name: invalid-image

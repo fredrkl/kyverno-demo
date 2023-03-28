@@ -30,3 +30,4 @@ spec:
             operator: AnyNotIn
             value:
             - traefik
+            - embassador
