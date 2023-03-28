@@ -1,7 +1,9 @@
 name: require tech label
 policies:
 - policies/require-tech-lead-label.yaml
+- policies/valid-image.yaml
 resources:
+- demo-pods/invalid-image.yaml
 - demo-pods/missing-tech-lead-label.yaml
 - demo-pods/valid-tech-lead-label.yaml
 results:
@@ -15,3 +17,9 @@ results:
   resource: valid-tech-lead-demo
   kind: Pod
   result: pass
+- policy: valid-image
+  rule: valid-image
+  resource: invalid-image
+  namespace: demo-pods
+  kind: Pod
+  result: fail

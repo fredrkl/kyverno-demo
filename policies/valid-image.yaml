@@ -1,0 +1,29 @@
+apiVersion: kyverno.io/v1
+kind: ClusterPolicy
+metadata:
+  name: valid-image
+  annotations:
+    policies.kyverno.io/title: Valid Container Image
+    policies.kyverno.io/category: Best Practices
+    policies.kyverno.io/minversion: 1.6.0
+    policies.kyverno.io/severity: medium
+    policies.kyverno.io/subject: Pod, Container
+    policies.kyverno.io/description: >-
+      This policy validates that the container image is specified and is from a valid list.
+      This is just for demo purpouses, and does not make sence in real world scenarios.
+spec:
+  validationFailureAction: Enforce
+  background: true
+  rules:
+  - name: valid-image
+    match:
+      any:
+      - resources:
+          kinds:
+          - Pod
+    validate:
+      message: "The container image is not valid. You can only use Traefik"
+      foreach:
+      - list: "request.object.spec.containers"
+        pattern:
+          image: "traefik"

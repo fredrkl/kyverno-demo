@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: demo-pods
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  namespace: demo-pods
+  labels:
+    run: invalid-image
+  name: invalid-image
+spec:
+  containers:
+  - image: nginx
+    name: invalid-image
