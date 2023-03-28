@@ -23,7 +23,10 @@ spec:
           - Pod
     validate:
       message: "The container image is not valid. You can only use Traefik"
-      foreach:
-      - list: "request.object.spec.containers"
-        pattern:
-          image: "traefik"
+      deny:
+        conditions:
+          all:
+          - key: "{{ images.[containers, initContainers, ephemeralContainers][].*.name[] }}"
+            operator: AnyNotIn
+            value:
+            - traefik
