@@ -1,9 +1,9 @@
 apiVersion: kyverno.io/v1
 kind: ClusterPolicy
 metadata:
-  name: require-labels
+  name: require-tech-lead-label
   annotations:
-    policies.kyverno.io/title: Require Labels
+    policies.kyverno.io/title: Require tech lead label
     policies.kyverno.io/category: Best Practices
     policies.kyverno.io/minversion: 1.6.0
     policies.kyverno.io/severity: medium
@@ -12,12 +12,12 @@ metadata:
       Define and use labels that identify semantic attributes of your application or Deployment.
       A common set of labels allows tools to work collaboratively, describing objects in a common manner that
       all tools can understand. The recommended labels describe applications in a way that can be
-      queried. This policy validates that the label `app.kubernetes.io/name` is specified with some value.      
+      queried. This policy validates that the label `tech-lead` is specified with some value.      
 spec:
   validationFailureAction: Enforce
   background: true
   rules:
-  - name: check-for-labels
+  - name: check-for-tech-lead
     match:
       any:
       - resources:
