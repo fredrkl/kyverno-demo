@@ -25,7 +25,7 @@ spec:
       message: "The container image is not valid. You can only use Traefik"
       deny:
         conditions:
-          all:
+          any:
           - key: "{{ images.[containers, initContainers, ephemeralContainers][].*.name[] }}"
             operator: AnyNotIn
             value:
