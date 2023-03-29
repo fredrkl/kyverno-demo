@@ -1,12 +1,7 @@
 apiVersion: v1
-kind: Namespace
-metadata:
-  name: demo-pods
----
-apiVersion: v1
 kind: Pod
 metadata:
-  namespace: demo-pods
+  namespace: tech-lead
   labels:
     run: failing-demo
   name: failing-demo

@@ -10,16 +10,18 @@ results:
 - policy: require-tech-lead-label
   rule: check-for-tech-lead
   resource: failing-demo
+  namespace: tech-lead
   kind: Pod
   result: fail
 - policy: require-tech-lead-label
   rule: check-for-tech-lead
   resource: valid-tech-lead-demo
+  namespace: tech-lead
   kind: Pod
   result: pass
 - policy: valid-image
   rule: valid-image
   resource: invalid-image
-  namespace: demo-pods
+  namespace: valid-image-demo
   kind: Pod
   result: fail
