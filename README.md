@@ -115,15 +115,20 @@ kyverno test .
 ```
 ### The result
 ```
+codespace ➜ /workspaces/kyverno-demo (main) $ kyverno test .
 
 Executing require tech label...
-applying 1 policy to 1 resource...
+applying 2 policies to 3 resources... 
+I0331 16:56:19.873155   12360 evaluate.go:63] EngineValidate "msg"="a condition failed in 'all' block" "kind"="Pod" "name"="failing-demo" "namespace"="tech-lead" "policy"="valid-image" "rule"="valid-image" "condition"={"key":["nginx"],"operator":"AnyNotIn","value":["traefik","nginx"]}
+I0331 16:56:19.874060   12360 evaluate.go:63] EngineValidate "msg"="a condition failed in 'all' block" "kind"="Pod" "name"="valid-tech-lead-demo" "namespace"="tech-lead" "policy"="valid-image" "rule"="valid-image" "condition"={"key":["nginx"],"operator":"AnyNotIn","value":["traefik","nginx"]}
 
-│───│────────────────│──────────────────│──────────────────────────│────────│
-│ # │ POLICY         │ RULE             │ RESOURCE                 │ RESULT │
-│───│────────────────│──────────────────│──────────────────────────│────────│
-│ 1 │ require-labels │ check-for-labels │ default/Pod/failing-demo │ Pass   │
-│───│────────────────│──────────────────│──────────────────────────│────────│
+│───│─────────────────────────│─────────────────────│────────────────────────────────────│────────│
+│ # │ POLICY                  │ RULE                │ RESOURCE                           │ RESULT │
+│───│─────────────────────────│─────────────────────│────────────────────────────────────│────────│
+│ 1 │ require-tech-lead-label │ check-for-tech-lead │ tech-lead/Pod/failing-demo         │ Pass   │
+│ 2 │ require-tech-lead-label │ check-for-tech-lead │ tech-lead/Pod/valid-tech-lead-demo │ Pass   │
+│ 3 │ valid-image             │ valid-image         │ valid-image-demo/Pod/invalid-image │ Pass   │
+│───│─────────────────────────│─────────────────────│────────────────────────────────────│────────│
 
-Test Summary: 1 tests passed and 0 tests failed
+Test Summary: 3 tests passed and 0 tests failed
 ```
