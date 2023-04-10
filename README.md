@@ -133,4 +133,33 @@ I0331 16:56:19.874060   12360 evaluate.go:63] EngineValidate "msg"="a condition 
 Test Summary: 3 tests passed and 0 tests failed
 ```
 
-# Pod Security Standard
+# Pod Security Standards
+
+Pod Security Standards define 3 different levels of security. The Kyverno Pod Security Standard policies are available [here](https://kyverno.io/policies/pod-security/).
+
+## Privileged
+
+Lets apply the restricted policy:
+
+```bash
+kubectl apply -f pod-security-standard/policies/pod-security-standard-restricted.yaml
+```
+
+The output should be:
+
+```
+k apply -f pod-security-standard/demo-pods/testing-restricted.yaml
+Error from server: error when creating "pod-security-standard/demo-pods/testing-restricted.yaml": admission webhook "validate.kyverno.svc-fail" denied the request: 
+
+policy Pod/demo-pods/valid-tech-lead-demo for resource violations: 
+
+podsecurity-subrule-restricted:
+  restricted: |
+    Validation rule 'restricted' failed. It violates PodSecurity "restricted:latest": ({Allowed:false ForbiddenReason:allowPrivilegeEscalation != false ForbiddenDetail:container "failing-demo" must set securityContext.allowPrivilegeEscalation=false})
+    ({Allowed:false ForbiddenReason:unrestricted capabilities ForbiddenDetail:container "failing-demo" must set securityContext.capabilities.drop=["ALL"]})
+    ({Allowed:false ForbiddenReason:runAsNonRoot != true ForbiddenDetail:pod or container "failing-demo" must set securityContext.runAsNonRoot=true})
+    ({Allowed:false ForbiddenReason:seccompProfile ForbiddenDetail:pod or container "failing-demo" must set securityContext.seccompProfile.type to "RuntimeDefault" or "Localhost"})
+require-labels:
+  check-for-labels: 'validation error: The label `tech-lead` is required. rule check-for-labels
+    failed at path /metadata/labels/tech-lead/'
+```
