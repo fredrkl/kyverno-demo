@@ -163,3 +163,16 @@ require-labels:
   check-for-labels: 'validation error: The label `tech-lead` is required. rule check-for-labels
     failed at path /metadata/labels/tech-lead/'
 ```
+
+Now lets test opting the pod out of the policy:
+
+```bash
+kubectl apply -f pod-security-standard/policies/pod-security-standard-restricted-opt-out.yaml
+```
+
+We should then be able to apply the previously failing pod:
+
+```bash
+k apply -f pod-security-standard/demo-pods/testing-restricted.yaml 
+pod/valid-tech-lead-demo created
+```

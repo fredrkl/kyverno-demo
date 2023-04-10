@@ -4,6 +4,7 @@ metadata:
   namespace: demo-pods
   labels:
     run: failing-demo
+    tech-lead: someone
   name: valid-tech-lead-demo
 spec:
   containers:
