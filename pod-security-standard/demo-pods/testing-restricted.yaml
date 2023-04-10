@@ -10,3 +10,8 @@ spec:
   containers:
   - image: nginx
     name: failing-demo
+    securityContext:
+      allowPrivilegeEscalation: false
+      capabilities:
+        drop:
+        - ALL
