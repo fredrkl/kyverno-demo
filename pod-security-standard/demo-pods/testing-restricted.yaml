@@ -8,10 +8,5 @@ metadata:
   name: valid-tech-lead-demo
 spec:
   containers:
-  - image: nginx
+  - image: busybox
     name: failing-demo
-    securityContext:
-      allowPrivilegeEscalation: false
-      capabilities:
-        drop:
-        - ALL

@@ -176,3 +176,32 @@ We should then be able to apply the previously failing pod:
 k apply -f pod-security-standard/demo-pods/testing-restricted.yaml 
 pod/valid-tech-lead-demo created
 ```
+
+# Rapporting
+
+First start cleaning up the previous demo:
+
+```bash
+k delete -f pod-security-standard/policies/pod-security-standard-restricted.yaml
+k delete -f pod-security-standard/policies/pod-security-standard-restricted-opt-out.yaml
+```
+
+Add a pod that violates a future policy:
+
+```bash
+k apply -f pod-security-standard/demo-pods/testing-restricted.yaml
+```
+
+Now lets apply the policy:
+
+```bash
+k apply -f pod-security-standard/policies/pod-security-standard-restricted.yaml
+```
+
+You can now get a rapport
+
+```bash
+k get policyreports.wgpolicyk8s.io cpol-podsecurity-subrule-restricted -n demo-pods
+NAME                                  PASS   FAIL   WARN   ERROR   SKIP   AGE
+cpol-podsecurity-subrule-restricted   0      1      0      0       0      72s
+```
