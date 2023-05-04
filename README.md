@@ -205,3 +205,17 @@ k get policyreports.wgpolicyk8s.io cpol-podsecurity-subrule-restricted -n demo-p
 NAME                                  PASS   FAIL   WARN   ERROR   SKIP   AGE
 cpol-podsecurity-subrule-restricted   0      1      0      0       0      72s
 ```
+
+# Mutate policy demo
+
+In addition to validation, Kyverno can also mutate resources. For a full list of its features see [https://kyverno.io/docs/writing-policies/mutate/](https://kyverno.io/docs/writing-policies/mutate/) Lets apply a mutate policy:
+
+```bash
+k apply -f policies/mutate/set-image-pull-policy.yaml
+```
+
+Now add a pod that is missing imagePullPolicy:
+
+```bash
+k apply -f demo-pods/mutate/missing-imagePullPolicy.yaml
+```
