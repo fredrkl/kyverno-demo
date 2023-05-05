@@ -26,6 +26,12 @@ spec:
       - resources:
           kinds:
           - Pod
+    exclude:
+      any:
+      - resources:
+          namespaces:
+          - demo-pods
+          - kube-system
     validate:
       podSecurity:
         level: restricted
