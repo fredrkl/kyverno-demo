@@ -1,0 +1,26 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  namespace: demo-pods
+  labels:
+    run: failing-demo
+    tech-lead: "John"
+  name: valid-tech-lead-demo
+spec:
+  securityContext:
+    runAsUser: 3000
+    runAsGroup: 3000
+    runAsNonRoot: true
+    seccompProfile:
+      type: RuntimeDefault
+  containers:
+  - image: busybox
+    name: failing-demo
+    securityContext:
+      allowPrivilegeEscalation: false
+      capabilities:
+        drop:
+        - ALL
+    command:
+      - sleep
+      - "3600"
