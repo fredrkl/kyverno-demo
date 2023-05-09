@@ -1,12 +1,12 @@
 name: Pod Security Standard Restricted
 policies:
-- policies/pod-security-standard-baseline.yaml
+- policies/pod-security-standard-restricted.yaml
 resources:
-- demo-pods/valid-tech-lead-label-restricted.yaml
+- demo-pods/testing-restricted.yaml
 results:
 - policy: podsecurity-subrule-restricted
   rule: restricted
   resource: valid-tech-lead-demo
   namespace: demo-pods
   kind: Pod
-  result: pass
+  result: fail
