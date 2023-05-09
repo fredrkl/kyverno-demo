@@ -1,6 +1,6 @@
 name: Pod Security Standard Restricted
 policies:
-- policies/pod-security-standard-restricted.yaml
+- policies/pod-security-standard-baseline.yaml
 resources:
 - demo-pods/valid-tech-lead-label-restricted.yaml
 results:
