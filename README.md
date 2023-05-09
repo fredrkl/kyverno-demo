@@ -1,5 +1,7 @@
 # Kyverno Demo
 
+[![Kyverno Tests](https://github.com/fredrkl/kyverno-demo/actions/workflows/kyverno-tests.yaml/badge.svg)](https://github.com/fredrkl/kyverno-demo/actions/workflows/kyverno-tests.yaml)
+
 ![Kyverno](images/kyverno.png)
 
 # Setup
